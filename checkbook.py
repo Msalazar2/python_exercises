@@ -13,10 +13,8 @@ def deposit(credit):
     return credit
 
 def total_balance(bal):
-    bal = credit - debit
-    return bal2
-
-
+    bal = balance
+    return bal
 
 while True:
     
@@ -24,43 +22,40 @@ while True:
 
     print()
 
-    print('1) view current balance')
-    print('2) record a debit (withdraw)')
-    print('3) record a credit (deposit)')
-    print('4) exit')
+    menu = int(input(''' What would you like to do?
+
+1) view current balance
+2) record a debit (withdraw)
+3) record a credit (deposit)
+4) exit
+
+Your choice? '''))
 
     print()
 
-    menu = input('What would you like to do? ')
+    if menu == 1:
+        
+        balance = float(total_balance(balance))
+        
+        print(f' Your current balance is: ${balance}')
 
-    print()
-
-    confirm = input(f'Your choice? {menu}')
-
-    print()
-
-
-
-    if menu.strip() == '1':
-        print(f'current balance: {balance}')
-
-    elif menu.strip() == '2':
+    elif menu == 2:
         
         w = int(input('How much would you like to withdraw? '))
           
-        balance = withdraw(w)
+        balance = float(withdraw(w))
          
-        print(f'total debit: {balance}')
+        print(f'New balance: ${balance}')
 
-    elif menu.strip() == '3':
+    elif menu == 3:
 
         d = int(input('How much would you like to deposit? '))
         
-        balance = deposit(d)
+        balance = float(deposit(d))
 
-        print(f'total credit {balance}')
+        print(f'New balance: ${balance}')
 
-    elif menu.strip() == '4':
+    elif menu == 4:
         
         with open ('checkbook.json', 'w') as f:
             json.dump(balance, f)

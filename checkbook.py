@@ -35,23 +35,23 @@ Your choice? '''))
 
     if menu == 1:
         
-        balance = float(total_balance(balance))
+        balance = round(float(total_balance(balance)), 2)
         
         print(f' Your current balance is: ${balance}')
 
     elif menu == 2:
         
-        w = int(input('How much would you like to withdraw? '))
+        w = float(input('How much would you like to withdraw? '))
           
-        balance = float(withdraw(w))
+        balance = round(float(withdraw(w)), 2)
          
         print(f'New balance: ${balance}')
 
     elif menu == 3:
 
-        d = int(input('How much would you like to deposit? '))
+        d = float(input('How much would you like to deposit? '))
         
-        balance = float(deposit(d))
+        balance = round(float(deposit(d)), 2)
 
         print(f'New balance: ${balance}')
 
